@@ -1,0 +1,109 @@
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.cranberrygame.phonegap.plugin.ad.vungle"
+        version="1.0.0">
+		
+    <name>Phonegap Vungle plugin</name>
+    <description>Phonegap Vungle plugin</description>
+    <author>Sang Ki Kwon (Cranberrygame)</author>		
+    <license>MIT</license>
+    <keywords>phonegap, plugin, ad, vungle</keywords>
+    <repo>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.ad.vungle</repo>
+    <issue>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.ad.vungle/issues</issue> 	
+	<engines>
+	    <engine name="cordova" version=">=3.0.0" />
+	</engines>
+	 
+    <js-module src="www/vungle.js">
+        <clobbers target="window.vungle" />
+    </js-module>	
+ 
+    <!-- android -->
+    <platform name="android">
+<!--
+		<dependency id="com.google.playservices" url="https://github.com/MobileChromeApps/google-play-services" commit="00f511a8ce332d4586f067240460bfe978ace2ae" />
+-->		
+		<dependency id="com.google.playservices@19.0.0" />
+		
+		<config-file target="res/xml/config.xml" parent="/*">
+		  <feature name="CordovaVungle">
+			<param name="android-package" value="com.ccsoft.plugin.CordovaVungle" />
+		  </feature>		
+		</config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity
+			  android:name="com.vungle.publisher.FullScreenAdActivity"
+			  android:configChanges="keyboardHidden|orientation|screenSize"
+			  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+
+			<service android:name="com.vungle.publisher.VungleService" android:exported="false"/>
+		</config-file>
+		
+		<config-file target="AndroidManifest.xml" parent="/*">
+		  <uses-permission android:name="android.permission.INTERNET" />
+		  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+		  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+		</config-file>
+
+		<!-- cranberrygame start: google-play-services.jar -->
+<!--		
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+		</config-file>
+-->		
+		<!-- cranberrygame end -->
+		
+      	<source-file src="src/android/CordovaVungle.java" target-dir="src/com/ccsoft/plugin" />					  
+
+		<!-- cranberrygame start: google-play-services.jar -->
+<!--		
+		<source-file src="src/android/google-play-services.jar" target-dir="libs" />
+		<source-file src="src/android/version.xml" target-dir="res/values" />
+-->		
+		<!-- cranberrygame end -->		
+	    <source-file src="src/android/dagger-1.2.2.jar" target-dir="libs" />		
+	    <source-file src="src/android/javax.inject-1.jar" target-dir="libs" />		
+	    <source-file src="src/android/nineoldandroids-2.4.0.jar" target-dir="libs" />		
+	    <source-file src="src/android/support-v4-18.0.0.jar" target-dir="libs" />		
+	    <source-file src="src/android/vungle-publisher-adaptive-id-3.2.2.jar" target-dir="libs" />		
+    </platform> 
+	
+	<!-- ios -->
+	<platform name="ios">        
+        <config-file target="config.xml" parent="/*">
+            <feature name="CordovaVungle">
+                <param name="ios-package" value="CordovaVungle" />
+            </feature>
+        </config-file>
+		
+        <header-file src="src/ios/CordovaVungle.h" />
+        <source-file src="src/ios/CordovaVungle.m" />
+        		
+		<!--framework src="src/ios/VungleSDK.embeddedframework" custom="true" /-->		
+		
+		<framework src="AdSupport.framework" />
+		<framework src="AudioToolbox.framework" />
+		<framework src="AVFoundation.framework" />
+		<framework src="CFNetwork.framework" />
+		<framework src="CoreGraphics.framework" />
+		<framework src="CoreMedia.framework" />
+		<framework src="Foundation.framework" />
+		<framework src="libz.dylib" />
+		<framework src="libsqlite3.dylib" />
+		<framework src="MediaPlayer.framework" />
+		<framework src="QuartzCore.framework" />
+		<framework src="StoreKit.framework" />
+		<framework src="SystemConfiguration.framework" />
+		<framework src="UIKit.framework" />
+    </platform>
+
+	<info>
+ios: do the following manually.
+
+Our SDK is released as a framework, so copy VungleSDK.embeddedframework/ into your project directory, 
+then drag and drop it into Xcode (Frameworks) to have it linked to your project.
+Note- the .embeddedframework directory should be added as a group (yellow folder) and not as a reference (blue folder).
+https://github.com/Vungle/vungle-resources/blob/master/English/iOS/iOS-dev-guide.md
+	</info> 	
+</plugin>
