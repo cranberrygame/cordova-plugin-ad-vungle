@@ -1,7 +1,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.cranberrygame.phonegap.plugin.ad.vungle"
-        version="1.0.1">
+        version="1.0.2">
 		
     <name>Phonegap Vungle plugin</name>
     <description>Phonegap Vungle plugin</description>
@@ -80,7 +80,9 @@
         <header-file src="src/ios/CordovaVungle.h" />
         <source-file src="src/ios/CordovaVungle.m" />
         		
-		<!--framework src="src/ios/VungleSDK.embeddedframework" custom="true" /-->		
+		<!--framework src="src/ios/VungleSDK.embeddedframework" custom="true" /-->
+		<framework src="src/ios/VungleSDK.embeddedframework/VungleSDK.framework" custom="true" />
+		<fresource-file src="src/ios/VungleSDK.embeddedframework/Resources" />
 		
 		<framework src="AdSupport.framework" />
 		<framework src="AudioToolbox.framework" />
