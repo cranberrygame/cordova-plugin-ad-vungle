@@ -99,13 +99,4 @@
 		<framework src="SystemConfiguration.framework" />
 		<framework src="UIKit.framework" />
     </platform>
-
-	<info>
-ios: do the following manually.
-
-Our SDK is released as a framework, so copy VungleSDK.embeddedframework/ into your project directory, 
-then drag and drop it into Xcode (Frameworks) to have it linked to your project.
-Note- the .embeddedframework directory should be added as a group (yellow folder) and not as a reference (blue folder).
-https://github.com/Vungle/vungle-resources/blob/master/English/iOS/iOS-dev-guide.md
-	</info> 	
 </plugin>
