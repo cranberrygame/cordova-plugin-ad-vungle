@@ -1,29 +1,67 @@
 
 module.exports = {
-	init: function (vungleid, config, successcb, errorcb) {
-		window.cordova.exec(function () {
-			if (successcb)
-				successcb();
-		}, function (err) {
-			if (errorcb)
-				errorcb(err);
-		}, "CordovaVungle", "init", [vungleid, config]);
-	},
-	playAd: function (config, successcb, errorcb) {
-		window.cordova.exec(function (completed) {
-			if (successcb)
-				successcb(completed);
-		}, function (err) {
-			if (errorcb)
-				errorcb(err);
-		}, "CordovaVungle", "playAd", [config]);
-	},
-	isVideoAvailable: function (successcb, errorcb) {
-		window.cordova.exec(function (s) {
-			successcb(s == 1 ? true : false);
-		}, function (err) {
-			if (errorcb)
-				errorcb(err);
-		}, "CordovaVungle", "isVideoAvailable", []);
-	}
+
+	setUp: function(appId) {
+        cordova.exec(
+            function (result) {
+			}, 
+			function (error) {
+			},
+            'Vungle',
+            'setUp',			
+            [appId]
+        ); 
+    },
+    checkAvailable: function() {
+		var self = this;
+		cordova.exec(
+            function (result) {
+				if (self.onAvailable)
+					self.onAvailable();
+			},
+            function (error) {
+				if (self.onUnavailable)
+					self.onUnavailable();
+			},
+            'Vungle',
+            'checkAvailable',
+            []
+        ); 
+    },	
+    showFullScreenAd: function() {
+		var self = this;
+		cordova.exec(
+            function (result) {
+				if (result == "onFullScreenAdShown") {
+					if (self.onFullScreenAdShown)
+						self.onFullScreenAdShown();
+				}
+				else if (result == "onFullScreenAdHidden") {
+					 if (self.onFullScreenAdHidden)
+						self.onFullScreenAdHidden();
+				}
+				else if (result == "onFullScreenAdCompleted") {
+					if (self.onFullScreenAdCompleted)
+						self.onFullScreenAdCompleted();
+				}
+				else if (result == "onFullScreenAdNotCompleted") {
+					if (self.onFullScreenAdNotCompleted)
+						self.onFullScreenAdNotCompleted();
+				}
+			},
+            function (error) {
+			},
+            'Vungle',
+            'showFullScreenAd',
+            []
+        ); 
+    },
+	//
+	onAvailable: null,
+	onUnavailable: null,
+	//
+	onFullScreenAdShown: null,
+	onFullScreenAdCompleted: null,
+	onFullScreenAdNotCompleted: null,
+	onFullScreenAdHidden: null
 };

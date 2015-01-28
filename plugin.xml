@@ -1,7 +1,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.cranberrygame.phonegap.plugin.ad.vungle"
-        version="1.0.3">
+        version="1.0.6">
 		
     <name>Phonegap Vungle plugin</name>
     <description>Phonegap Vungle plugin</description>
@@ -27,8 +27,8 @@
 		<dependency id="android.support.v4@1.0.0" />
 		
 		<config-file target="res/xml/config.xml" parent="/*">
-		  <feature name="CordovaVungle">
-			<param name="android-package" value="com.ccsoft.plugin.CordovaVungle" />
+		  <feature name="Vungle">
+			<param name="android-package" value="com.cranberrygame.phonegap.plugin.ad.Vungle" />
 		  </feature>		
 		</config-file>
 		
@@ -55,7 +55,7 @@
 -->		
 		<!-- cranberrygame end -->
 		
-      	<source-file src="src/android/CordovaVungle.java" target-dir="src/com/ccsoft/plugin" />					  
+      	<source-file src="src/android/Vungle.java" target-dir="src/com/cranberrygame/phonegap/plugin/ad" />					  
 
 		<!-- cranberrygame start: google-play-services.jar -->
 <!--		
@@ -72,13 +72,13 @@
 	<!-- ios -->
 	<platform name="ios">        
         <config-file target="config.xml" parent="/*">
-            <feature name="CordovaVungle">
-                <param name="ios-package" value="CordovaVungle" />
+            <feature name="Vungle">
+                <param name="ios-package" value="Vungle" />
             </feature>
         </config-file>
 		
-        <header-file src="src/ios/CordovaVungle.h" />
-        <source-file src="src/ios/CordovaVungle.m" />
+        <header-file src="src/ios/Vungle.h" />
+        <source-file src="src/ios/Vungle.m" />
         		
 		<!--framework src="src/ios/VungleSDK.embeddedframework" custom="true" /-->
 		<framework src="src/ios/VungleSDK.embeddedframework/VungleSDK.framework" custom="true" />
