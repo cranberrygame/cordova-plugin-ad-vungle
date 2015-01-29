@@ -1,6 +1,6 @@
 
 module.exports = {
-
+	tag: '',
 	setUp: function(appId) {
         cordova.exec(
             function (result) {
@@ -12,14 +12,16 @@ module.exports = {
             [appId]
         ); 
     },
-    checkAvailable: function() {
+    checkAvailable: function(tag) {
 		var self = this;
 		cordova.exec(
             function (result) {
+				self.tag = tag;			
 				if (self.onAvailable)
 					self.onAvailable();
 			},
             function (error) {
+				self.tag = tag;			
 				if (self.onUnavailable)
 					self.onUnavailable();
 			},
@@ -28,10 +30,11 @@ module.exports = {
             []
         ); 
     },	
-    showFullScreenAd: function() {
+    showFullScreenAd: function(tag) {
 		var self = this;
 		cordova.exec(
             function (result) {
+				self.tag = tag;			
 				if (result == "onFullScreenAdShown") {
 					if (self.onFullScreenAdShown)
 						self.onFullScreenAdShown();
