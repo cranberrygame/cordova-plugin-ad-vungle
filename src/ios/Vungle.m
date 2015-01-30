@@ -11,16 +11,17 @@ static NSMutableDictionary* mConfig = nil;
 	NSString *appId = [command.arguments objectAtIndex: 0];
     
     NSLog(@"%@", @"setUp");
+    NSLog(@"%@", appId);
     
     VungleSDK* sdk = [VungleSDK sharedSDK];
     // start vungle publisher library
     [sdk startWithAppId:appId];
     [sdk setDelegate:self];
 
-    NSMutableDictionary* config = [[NSMutableDictionary alloc] init];	
+    NSMutableDictionary* config = [[NSMutableDictionary alloc] init];
 	//[config setObject:[config objectForKey:@"orientation"] forKey:VunglePlayAdOptionKeyOrientations]; // !! Be careful, not the same behaviour with android
 	mConfig = config;
-	
+    
 	CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
 	//[pr setKeepCallbackAsBool:YES];
 	[self.commandDelegate sendPluginResult:pr callbackId:command.callbackId];
@@ -59,6 +60,10 @@ static NSMutableDictionary* mConfig = nil;
 
 - (void) showFullScreenAd:(CDVInvokedUrlCommand*)command
 {
+    BOOL available = [[VungleSDK sharedSDK] isCachedAdAvailable];
+    if (!available)
+        return;
+    
     self.interstitialViewCallbackId = command.callbackId; // we will use it in delegate
     
     [[VungleSDK sharedSDK] playAd:self.viewController withOptions:mConfig];
@@ -66,12 +71,11 @@ static NSMutableDictionary* mConfig = nil;
 
 /**
  * If implemented, this will get called when ad ad has cached. It's now ready to play!
- 
+*/
 - (void)vungleSDKhasCachedAdAvailable
 {
-    
+    NSLog(@"%@", @"vungleSDKhasCachedAdAvailable");
 }
-*/
 
 /**
  * If implemented, this will get called when the SDK is about to show an ad. This point
