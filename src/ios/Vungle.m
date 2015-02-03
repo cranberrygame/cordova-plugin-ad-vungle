@@ -60,10 +60,6 @@ static NSMutableDictionary* mConfig = nil;
 
 - (void) showFullScreenAd:(CDVInvokedUrlCommand*)command
 {
-    BOOL available = [[VungleSDK sharedSDK] isCachedAdAvailable];
-    if (!available)
-        return;
-    
     self.interstitialViewCallbackId = command.callbackId; // we will use it in delegate
     
     [[VungleSDK sharedSDK] playAd:self.viewController withOptions:mConfig];
