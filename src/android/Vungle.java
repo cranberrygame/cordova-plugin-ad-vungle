@@ -98,6 +98,24 @@ public class Vungle extends CordovaPlugin {
     }
 	
 	@Override
+	public void onPause(boolean multitasking) {
+		super.onPause(multitasking);
+		vunglePub.onPause();
+	}
+	
+	@Override
+	public void onResume(boolean multitasking) {
+		super.onResume(multitasking);
+		vunglePub.onResume();
+	}
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		//
+	}
+
+	@Override
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
 		if (action.equals("setLicenseKey")) {
@@ -204,7 +222,8 @@ public class Vungle extends CordovaPlugin {
 		//
 		String str1 = Util.md5("com.cranberrygame.cordova.plugin.: " + email);
 		String str2 = Util.md5("com.cranberrygame.cordova.plugin.ad.vungle: " + email);
-		if(licenseKey != null && (licenseKey.equalsIgnoreCase(str1) || licenseKey.equalsIgnoreCase(str2))) {
+		String str3 = Util.md5("com.cranberrygame.cordova.plugin.ad.video.vungle: " + email);		
+		if(licenseKey != null && (licenseKey.equalsIgnoreCase(str1) || licenseKey.equalsIgnoreCase(str2) || licenseKey.equalsIgnoreCase(str3))) {
 			Log.d(LOG_TAG, String.format("%s", "valid licenseKey"));
 			this.validLicenseKey = true;
 		}
@@ -224,9 +243,10 @@ public class Vungle extends CordovaPlugin {
 				this.appId = TEST_APP_ID;
 			}
 		}
-		
-		vunglePub.init(cordova.getActivity(), appId);
 
+		vunglePub.init(cordova.getActivity(), appId);
+		vunglePub.setEventListener(new MyEventListener());
+		
 		final AdConfig config = vunglePub.getGlobalAdConfig();
 		config.setOrientation(Orientation.autoRotate);//for android
 		//config.setOrientation(Orientation.matchVideo);
@@ -252,73 +272,77 @@ public class Vungle extends CordovaPlugin {
 	}
 	
 	private void _showRewardedVideoAd() {
-		vunglePub.setEventListener(new EventListener() {
-			@Override
-			public void onCachedAdAvailable() {
-				Log.d(LOG_TAG, "onCachedAdAvailable");
-			}
-			
-			@Override
-			public void onAdUnavailable(String arg0) {
-				Log.d(LOG_TAG, "onAdUnavailable");
-			}
-			
-			@Override
-			public void onAdStart() {//cranberrygame
-				// Called before playing an ad
-				Log.d(LOG_TAG, "onAdStart");
-				
-				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdShown");
-				pr.setKeepCallback(true);
-				callbackContextKeepCallback.sendPluginResult(pr);
-				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
-				//pr.setKeepCallback(true);
-				//callbackContextKeepCallback.sendPluginResult(pr);					
-			}
+		vunglePub.playAd();
+		//final AdConfig overrideConfig = new AdConfig();			
+        //overrideConfig.setIncentivized(true);
+        //overrideConfig.setSoundEnabled(false);
+		//vunglePub.playAd(overrideConfig);		
+	}
 
-			@Override
-			public void onAdEnd(boolean wasCallToActionClicked) {//cranberrygame
-				// Called when the user leaves the ad and control is returned to your application
-				Log.d(LOG_TAG, "onAdEnd");
-				
-				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdHidden");
-				pr.setKeepCallback(true);
-				callbackContextKeepCallback.sendPluginResult(pr);
-				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
-				//pr.setKeepCallback(true);
-				//callbackContextKeepCallback.sendPluginResult(pr);					
-			}
-			
-			@Override
-			public void onVideoView(boolean isCompletedView, int watchedMillis, int videoDurationMillis) {
-				// Called each time an ad completes. isCompletedView is true if at least  
-				// 80% of the video was watched, which constitutes a completed view.  
-				// watchedMillis is for the longest video view (if the user replayed the 
-				// video).
-				if (isCompletedView) {
-					Log.d(LOG_TAG, "onVideoView: completed");
+	class MyEventListener implements EventListener {	
 
-					PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdCompleted");
-					pr.setKeepCallback(true);
-					callbackContextKeepCallback.sendPluginResult(pr);
-					//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
-					//pr.setKeepCallback(true);
-					//callbackContextKeepCallback.sendPluginResult(pr);
-				}
-				else {
-					Log.d(LOG_TAG, "onVideoView: not completed");
-					
-					PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdNotCompleted");
-					pr.setKeepCallback(true);
-					callbackContextKeepCallback.sendPluginResult(pr);
-					//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
-					//pr.setKeepCallback(true);
-					//callbackContextKeepCallback.sendPluginResult(pr);
-				}
-			}
-		});
+		@Override
+		public void onCachedAdAvailable() {
+			Log.d(LOG_TAG, "onCachedAdAvailable");
+		}
 		
-		final AdConfig overrideConfig = new AdConfig();			
-		vunglePub.playAd(overrideConfig);
+		@Override
+		public void onAdUnavailable(String arg0) {
+			Log.d(LOG_TAG, "onAdUnavailable");
+		}
+		
+		@Override
+		public void onAdStart() {//cranberrygame
+			// Called before playing an ad
+			Log.d(LOG_TAG, "onAdStart");
+			
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdShown");
+			pr.setKeepCallback(true);
+			callbackContextKeepCallback.sendPluginResult(pr);
+			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+			//pr.setKeepCallback(true);
+			//callbackContextKeepCallback.sendPluginResult(pr);					
+		}
+
+		@Override
+		public void onAdEnd(boolean wasCallToActionClicked) {//cranberrygame
+			// Called when the user leaves the ad and control is returned to your application
+			Log.d(LOG_TAG, "onAdEnd");
+			
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdHidden");
+			pr.setKeepCallback(true);
+			callbackContextKeepCallback.sendPluginResult(pr);
+			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+			//pr.setKeepCallback(true);
+			//callbackContextKeepCallback.sendPluginResult(pr);					
+		}
+		
+		@Override
+		public void onVideoView(boolean isCompletedView, int watchedMillis, int videoDurationMillis) {
+			// Called each time an ad completes. isCompletedView is true if at least  
+			// 80% of the video was watched, which constitutes a completed view.  
+			// watchedMillis is for the longest video view (if the user replayed the 
+			// video).
+			if (isCompletedView) {
+				Log.d(LOG_TAG, "onVideoView: completed");
+
+				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdCompleted");
+				pr.setKeepCallback(true);
+				callbackContextKeepCallback.sendPluginResult(pr);
+				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+				//pr.setKeepCallback(true);
+				//callbackContextKeepCallback.sendPluginResult(pr);
+			}
+			else {
+				Log.d(LOG_TAG, "onVideoView: not completed");
+				
+				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdNotCompleted");
+				pr.setKeepCallback(true);
+				callbackContextKeepCallback.sendPluginResult(pr);
+				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+				//pr.setKeepCallback(true);
+				//callbackContextKeepCallback.sendPluginResult(pr);
+			}
+		}
 	}	
 } 

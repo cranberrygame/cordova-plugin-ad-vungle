@@ -119,12 +119,10 @@ alert(window.vungle.isShowingRewardedVideoAd());//boolean: true or false
 
 # Test #
 
-<img src="https://github.com/cranberrygame/cordova-plugin-ad-video-vungle/blob/master/doc/fullscreen_ad.png">
-
-[![](http://img.youtube.com/vi/EQJLRbSKmPU/0.jpg)](https://www.youtube.com/watch?v=EQJLRbSKmPU&feature=youtu.be "Youtube")
+[![](http://img.youtube.com/vi/etstZY7k6z8/0.jpg)](https://www.youtube.com/watch?v=etstZY7k6z8&feature=youtu.be "Youtube")
 
 You can also run following test apk.
-https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/vungle/CordovaApp-debug.apk
+https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/vungle/apk.html
 
 # Useful links #
 

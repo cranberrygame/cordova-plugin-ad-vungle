@@ -61,17 +61,17 @@ module.exports = {
 			function (error) {
 				console.log('setUp failed.');
 /*			
-				if (typeof result == "string") {
-					if (result == "onUnavailable") {
+				if (typeof error == "string") {
+					if (error == "onUnavailable") {
 						if (self.onUnavailable)
 							self.onUnavailable();
 					}
 				}
 				else {
-					//if (result["event"] == "onXXX") {
-					//	//result["message"]
+					//if (error["event"] == "onXXX") {
+					//	//error["message"]
 					//	if (self.onXXX)
-					//		self.onXXX(result);
+					//		self.onXXX(error);
 					//}
 				}
 */				
@@ -106,20 +106,20 @@ module.exports = {
 				console.log('checkAvailable failed.');
 				
 				self.tag = tag;				
-				if (typeof result == "string") {
-					if (result == "onUnavailable") {
+				if (typeof error == "string") {
+					if (error == "onUnavailable") {
 						if (self.onUnavailable)
 							self.onUnavailable();
 					}
 				}
 				else {
-					//if (result["event"] == "onXXX") {
-					//	//result["message"]
+					//if (error["event"] == "onXXX") {
+					//	//error["message"]
 					//	if (self.onXXX)
-					//		self.onXXX(result);
+					//		self.onXXX(error);
 					//}
 				}				
-			},
+			},			
             'Vungle',
             'checkAvailable',
             []
