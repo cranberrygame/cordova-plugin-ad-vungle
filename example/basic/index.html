@@ -1,0 +1,58 @@
+<html>
+<head>
+	<script type="text/javascript" src="cordova.js"></script>
+</head>
+<body>
+
+<script>
+
+var appId = "REPLACE_THIS_WITH_YOUR_APP_ID";
+
+/*
+var appId;
+//android
+if (navigator.userAgent.match(/Android/i)) {
+	appId = "REPLACE_THIS_WITH_YOUR_APP_ID";
+}
+//ios
+else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {
+	appId = "REPLACE_THIS_WITH_YOUR_APP_ID";
+}
+*/
+
+document.addEventListener("deviceready", function(){
+	//if no license key, 2% ad traffic share for dev support.
+	//you can get free license key from https://play.google.com/store/apps/details?id=com.cranberrygame.pluginsforcordova
+	//window.vungle.setLicenseKey("yourEmailId@yourEmaildDamin.com", "yourFreeLicenseKey");
+
+	window.vungle.setUp(appId);
+
+	//rewarded video ad callback
+	window.vungle.onRewardedVideoAdShown = function() {
+		alert('onRewardedVideoAdShown');
+	};
+	window.vungle.onRewardedVideoAdHidden = function() {
+		alert('onRewardedVideoAdHidden');
+	};
+	window.vungle.onRewardedVideoAdCompleted = function() {
+		alert('onRewardedVideoAdCompleted');
+	};	
+	window.vungle.onRewardedVideoAdNotCompleted = function() {
+		alert('onRewardedVideoAdNotCompleted');
+	};	
+}, false);
+
+//rewarded video
+window.vungle.showRewardedVideoAd();
+
+alert(window.vungle.isShowingRewardedVideoAd());//boolean: true or false
+
+</script>
+
+<!-- rewarded video -->
+<p><button onclick="window.vungle.showRewardedVideoAd();">showRewardedVideoAd</button></p>
+<br>
+<p><button onclick="alert(window.vungle.isShowingRewardedVideoAd());">isShowingRewardedVideoAd</button></p>
+
+</body>
+</html>
