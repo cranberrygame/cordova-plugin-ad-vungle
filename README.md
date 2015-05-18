@@ -40,7 +40,8 @@ Plugin ID: com.cranberrygame.cordova.plugin.ad.video.vungle
 
 ## Construct2 ##
 Download construct2 plugin: https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/vungle/construct2.html
-
+<br>
+Now all the native plugins are installed automatically: https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
 # Server setting #
 
 <img src="https://github.com/cranberrygame/cordova-plugin-ad-video-vungle/blob/master/doc/app_id.png"><br>
@@ -94,7 +95,6 @@ document.addEventListener("deviceready", function(){
 
 	window.vungle.setUp(appId);
 
-	//rewarded video ad callback
 	window.vungle.onRewardedVideoAdShown = function() {
 		alert('onRewardedVideoAdShown');
 	};
@@ -109,7 +109,6 @@ document.addEventListener("deviceready", function(){
 	};	
 }, false);
 
-//rewarded video
 window.vungle.showRewardedVideoAd();
 
 alert(window.vungle.isShowingRewardedVideoAd());//boolean: true or false
@@ -130,3 +129,4 @@ Plugins For Cordova<br>
 http://cranberrygame.github.io?referrer=github
 
 # Credits #
+

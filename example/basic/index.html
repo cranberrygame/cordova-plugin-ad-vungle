@@ -27,7 +27,6 @@ document.addEventListener("deviceready", function(){
 
 	window.vungle.setUp(appId);
 
-	//rewarded video ad callback
 	window.vungle.onRewardedVideoAdShown = function() {
 		alert('onRewardedVideoAdShown');
 	};
@@ -42,7 +41,6 @@ document.addEventListener("deviceready", function(){
 	};	
 }, false);
 
-//rewarded video
 window.vungle.showRewardedVideoAd();
 
 alert(window.vungle.isShowingRewardedVideoAd());//boolean: true or false
