@@ -2,7 +2,7 @@
 //Email: cranberrygame@yahoo.com
 //Homepage: http://www.github.com/cranberrygame
 //License: MIT (http://opensource.org/licenses/MIT)
-package com.cranberrygame.cordova.plugin.ad.video.vungle;
+package com.cranberrygame.cordova.plugin.ad.vungle;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
