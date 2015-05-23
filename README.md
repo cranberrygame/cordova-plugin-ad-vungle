@@ -21,21 +21,28 @@ You can see Plugins For Cordova in one page: http://cranberrygame.github.io?refe
 
 ## Cordova cli ##
 ```c
-cordova plugin add com.cranberrygame.cordova.plugin.ad.video.vungle
+https://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface - npm install -g cordova@4.1.2
+
+cordova plugin add com.cranberrygame.cordova.plugin.ad.vungle
 ```
 
 ## Xdk ##
 ```c
-XDK PORJECTS - your_xdk_project - CORDOVA 3.X HYBRID MOBILE APP SETTINGS - PLUGINS AND PERMISSIONS - Third Party Plugins - Add a Third Party Plugin - Get Plugin from the Web -
+https://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA 3.X HYBRID MOBILE APP SETTINGS - PLUGINS - Third Party Plugins - Add a Third Party Plugin - Get Plugin from the Web -
 
-Name: revmob
-Plugin ID: com.cranberrygame.cordova.plugin.ad.video.vungle
+Name: vungle
+Plugin ID: com.cranberrygame.cordova.plugin.ad.vungle
 [v] Plugin is located in the Apache Cordova Plugins Registry
 ```
 
+## Cocoon ##
+https://cocoon.io - Create project - [specific project] - Setting - Plugins - Search - cranberrygame - vungle
+
 ## Phonegap build service (config.xml) ##
 ```c
-<gap:plugin name="com.cranberrygame.cordova.plugin.ad.video.vungle" source="plugins.cordova.io" />
+https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file including config.xml
+
+<gap:plugin name="com.cranberrygame.cordova.plugin.ad.vungle" source="plugins.cordova.io" />
 ```
 
 ## Construct2 ##
@@ -44,8 +51,12 @@ Download construct2 plugin: https://dl.dropboxusercontent.com/u/186681453/plugin
 Now all the native plugins are installed automatically: https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
 # Server setting #
 
-<img src="https://github.com/cranberrygame/cordova-plugin-ad-video-vungle/blob/master/doc/app_id.png"><br>
-<img src="https://github.com/cranberrygame/cordova-plugin-ad-video-vungle/blob/master/doc/test_mode.png">
+<img src="https://github.com/cranberrygame/cordova-plugin-ad-vungle/blob/master/doc/app_id.png"><br>
+<img src="https://github.com/cranberrygame/cordova-plugin-ad-vungle/blob/master/doc/test_mode.png"><br>
+<img src="https://github.com/cranberrygame/cordova-plugin-ad-vungle/blob/master/doc/ios1.png"><br>
+<img src="https://github.com/cranberrygame/cordova-plugin-ad-vungle/blob/master/doc/ios2.png"><br>
+<img src="https://github.com/cranberrygame/cordova-plugin-ad-vungle/blob/master/doc/ios3.png"><br>
+<img src="https://github.com/cranberrygame/cordova-plugin-ad-vungle/blob/master/doc/ios4.png">
 
 ```c
 test mode setting: 
@@ -75,7 +86,6 @@ If you use a third-party framework, you may need to contact the developer for in
 # API #
 ```javascript
 var appId = "REPLACE_THIS_WITH_YOUR_APP_ID";
-
 /*
 var appId;
 //android
@@ -114,7 +124,7 @@ window.vungle.showRewardedVideoAd();
 alert(window.vungle.isShowingRewardedVideoAd());//boolean: true or false
 ```
 # Examples #
-<a href="https://github.com/cranberrygame/cordova-plugin-ad-video-vungle/blob/master/example/basic/index.html">example/basic/index.html</a><br>
+<a href="https://github.com/cranberrygame/cordova-plugin-ad-vungle/blob/master/example/basic/index.html">example/basic/index.html</a><br>
 
 # Test #
 
