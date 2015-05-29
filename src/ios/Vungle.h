@@ -18,7 +18,6 @@
 
 - (void) setLicenseKey: (CDVInvokedUrlCommand*)command;
 - (void) setUp:(CDVInvokedUrlCommand*)command;
-- (void) checkAvailable:(CDVInvokedUrlCommand*)command;
 - (void) showRewardedVideoAd:(CDVInvokedUrlCommand*)command;
 
 @end

@@ -42,25 +42,14 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 	NSString* appId = [command.arguments objectAtIndex:0];
 	NSLog(@"%@", appId);
 	
-    //self.callbackIdKeepCallback = command.callbackId;
+    self.callbackIdKeepCallback = command.callbackId;
 	
     //[self.commandDelegate runInBackground:^{
 		[self _setUp:appId];	
     //}];
 }
 
-- (void) checkAvailable: (CDVInvokedUrlCommand*)command {
-	
-	self.callbackIdKeepCallback = command.callbackId;
-	
-    [self.commandDelegate runInBackground:^{
-		[self _checkAvailable];
-    }];
-}
-
 - (void) showRewardedVideoAd: (CDVInvokedUrlCommand*)command {
-
-	self.callbackIdKeepCallback = command.callbackId;
 
     //[self.commandDelegate runInBackground:^{
 		[self _showRewardedVideoAd];
@@ -77,7 +66,7 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 	NSString *str3 = [self md5:[NSString stringWithFormat:@"com.cranberrygame.cordova.plugin.ad.video.vungle: %@", email]];
 	if(licenseKey_ != Nil && ([licenseKey_ isEqualToString:str1] || [licenseKey_ isEqualToString:str2] || [licenseKey_ isEqualToString:str3])){
 		self.validLicenseKey = YES;
-		NSArray *excludedLicenseKeys = [NSArray arrayWithObjects: @"995f68522b89ea504577d93232db608c", nil];
+		NSArray *excludedLicenseKeys = [NSArray arrayWithObjects: @"xxx", nil];
 		for (int i = 0 ; i < [excludedLicenseKeys count] ; i++) {
 			if([[excludedLicenseKeys objectAtIndex:i] isEqualToString:licenseKey]) {
 				self.validLicenseKey = NO;
@@ -125,32 +114,6 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
     [sdk setDelegate:self];
 }
 
--(void) _checkAvailable {
-
-    BOOL available = [[VungleSDK sharedSDK] isCachedAdAvailable];
-    
-	if (available) {
-        NSLog(@"%@", @"available");
-        
-		CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onAvailable"];
-		[pr setKeepCallbackAsBool:YES];
-		[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
-		//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-		//[pr setKeepCallbackAsBool:YES];
-		//[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
-	}
-	else {
-        NSLog(@"%@", @"unavailable");
-        
-		CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onUnavailable"];
-		[pr setKeepCallbackAsBool:YES];
-		[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
-		//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-		//[pr setKeepCallbackAsBool:YES];
-		//[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
-	}
-}
-
 -(void) _showRewardedVideoAd {
     NSMutableDictionary* config = [[NSMutableDictionary alloc] init];
 	//[config setObject:[config objectForKey:@"orientation"] forKey:VunglePlayAdOptionKeyOrientations]; // !! Be careful, not the same behaviour with android
@@ -172,6 +135,13 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 - (void)vungleSDKhasCachedAdAvailable
 {
     NSLog(@"%@", @"vungleSDKhasCachedAdAvailable");
+	
+    CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdLoaded"];
+	[pr setKeepCallbackAsBool:YES];
+	[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
+    //CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+	//[pr setKeepCallbackAsBool:YES];
+	//[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];	
 }
 
 /**
@@ -234,13 +204,14 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 	}
 	else {
 		NSLog(@"%@", @"vungleSDKwillCloseAdWithViewInfo: not completed");
-	
+/*	
 		CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdNotCompleted"];
 		[pr setKeepCallbackAsBool:YES];
 		[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
 		//CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
 		//[pr setKeepCallbackAsBool:YES];
-		//[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];					
+		//[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
+*/		
 	}
 }
 

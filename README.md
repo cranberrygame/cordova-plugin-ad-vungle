@@ -43,7 +43,7 @@ https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file
 ```
 
 ## Construct2 ##
-Download construct2 plugin: https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/vungle/construct2.html
+Download construct2 plugin: http://www.paywithapost.de/pay?id=4ef3f2be-26e8-4a04-b826-6680db13a8c8
 <br>
 Now all the native plugins are installed automatically: https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
 # Server setting #
@@ -102,6 +102,9 @@ document.addEventListener("deviceready", function(){
 
 	window.vungle.setUp(appId);
 
+	window.vungle.onRewardedVideoAdLoaded = function() {
+		alert('onRewardedVideoAdLoaded');
+	};
 	window.vungle.onRewardedVideoAdShown = function() {
 		alert('onRewardedVideoAdShown');
 	};
@@ -111,12 +114,11 @@ document.addEventListener("deviceready", function(){
 	window.vungle.onRewardedVideoAdCompleted = function() {
 		alert('onRewardedVideoAdCompleted');
 	};	
-	window.vungle.onRewardedVideoAdNotCompleted = function() {
-		alert('onRewardedVideoAdNotCompleted');
-	};	
 }, false);
 
 window.vungle.showRewardedVideoAd();
+
+alert(window.vungle.loadedRewardedVideoAd());//boolean: true or false
 
 alert(window.vungle.isShowingRewardedVideoAd());//boolean: true or false
 ```

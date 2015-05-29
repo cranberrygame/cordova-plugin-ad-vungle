@@ -23,6 +23,9 @@ document.addEventListener("deviceready", function(){
 
 	window.vungle.setUp(appId);
 
+	window.vungle.onRewardedVideoAdLoaded = function() {
+		alert('onRewardedVideoAdLoaded');
+	};	
 	window.vungle.onRewardedVideoAdShown = function() {
 		alert('onRewardedVideoAdShown');
 	};
@@ -32,19 +35,12 @@ document.addEventListener("deviceready", function(){
 	window.vungle.onRewardedVideoAdCompleted = function() {
 		alert('onRewardedVideoAdCompleted');
 	};	
-	window.vungle.onRewardedVideoAdNotCompleted = function() {
-		alert('onRewardedVideoAdNotCompleted');
-	};	
 }, false);
-
-window.vungle.showRewardedVideoAd();
-
-alert(window.vungle.isShowingRewardedVideoAd());//boolean: true or false
-
 </script>
 
-<!-- rewarded video -->
 <p><button onclick="window.vungle.showRewardedVideoAd();">showRewardedVideoAd</button></p>
+<br>
+<p><button onclick="alert(window.vungle.loadedRewardedVideoAd());">loadedRewardedVideoAd</button></p>
 <br>
 <p><button onclick="alert(window.vungle.isShowingRewardedVideoAd());">isShowingRewardedVideoAd</button></p>
 

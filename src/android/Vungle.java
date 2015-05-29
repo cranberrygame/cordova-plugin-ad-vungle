@@ -127,12 +127,7 @@ public class Vungle extends CordovaPlugin {
 			setUp(action, args, callbackContext);
 
 			return true;
-		}			
-		else if (action.equals("checkAvailable")) {
-			checkAvailable(action, args, callbackContext);
-
-			return true;
-		}			
+		}
 		else if (action.equals("showRewardedVideoAd")) {
 			showRewardedVideoAd(action, args, callbackContext);
 						
@@ -185,7 +180,7 @@ public class Vungle extends CordovaPlugin {
 		final String appId = args.getString(0);
 		Log.d(LOG_TAG, String.format("%s", appId));			
 		
-		//callbackContextKeepCallback = callbackContext;
+		callbackContextKeepCallback = callbackContext;
 			
 		cordova.getActivity().runOnUiThread(new Runnable() {
 			@Override
@@ -194,23 +189,9 @@ public class Vungle extends CordovaPlugin {
 			}
 		});
 	}
-	
-	private void checkAvailable(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-
-		callbackContextKeepCallback = callbackContext;
-	
-		cordova.getActivity().runOnUiThread(new Runnable(){
-			@Override
-			public void run() {
-				_checkAvailable();
-			}
-		});
-	}
 
 	private void showRewardedVideoAd(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-		callbackContextKeepCallback = callbackContext;
-	
 		cordova.getActivity().runOnUiThread(new Runnable(){
 			@Override
 			public void run() {
@@ -230,7 +211,7 @@ public class Vungle extends CordovaPlugin {
 		if(licenseKey != null && (licenseKey.equalsIgnoreCase(str1) || licenseKey.equalsIgnoreCase(str2) || licenseKey.equalsIgnoreCase(str3))) {
 			this.validLicenseKey = true;
 			//
-			String[] excludedLicenseKeys = {"995f68522b89ea504577d93232db608c"};
+			String[] excludedLicenseKeys = {"xxx"};
 			for (int i = 0 ; i < excludedLicenseKeys.length ; i++) {
 				if (excludedLicenseKeys[i].equals(licenseKey)) {
 					this.validLicenseKey = false;
@@ -266,25 +247,6 @@ public class Vungle extends CordovaPlugin {
 		config.setOrientation(Orientation.autoRotate);//for android
 		//config.setOrientation(Orientation.matchVideo);
 	}
-
-	private void _checkAvailable() {
-		final boolean available = vunglePub.isCachedAdAvailable();
-
-		if (available) {
-			Log.d(LOG_TAG, "available");
-			
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onAvailable");
-			pr.setKeepCallback(true);
-			callbackContextKeepCallback.sendPluginResult(pr);
-		}
-		else {
-			Log.d(LOG_TAG, "unavailable");
-			
-			PluginResult pr = new PluginResult(PluginResult.Status.ERROR, "onUnavailable");
-			pr.setKeepCallback(true);
-			callbackContextKeepCallback.sendPluginResult(pr);
-		}
-	}
 	
 	private void _showRewardedVideoAd() {
 		vunglePub.playAd();
@@ -299,6 +261,13 @@ public class Vungle extends CordovaPlugin {
 		@Override
 		public void onCachedAdAvailable() {
 			Log.d(LOG_TAG, "onCachedAdAvailable");
+			
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdLoaded");
+			pr.setKeepCallback(true);
+			callbackContextKeepCallback.sendPluginResult(pr);
+			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+			//pr.setKeepCallback(true);
+			//callbackContextKeepCallback.sendPluginResult(pr);			
 		}
 		
 		@Override
@@ -350,13 +319,14 @@ public class Vungle extends CordovaPlugin {
 			}
 			else {
 				Log.d(LOG_TAG, "onVideoView: not completed");
-				
+/*				
 				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdNotCompleted");
 				pr.setKeepCallback(true);
 				callbackContextKeepCallback.sendPluginResult(pr);
 				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
 				//pr.setKeepCallback(true);
 				//callbackContextKeepCallback.sendPluginResult(pr);
+*/				
 			}
 		}
 	}	

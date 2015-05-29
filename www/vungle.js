@@ -1,7 +1,7 @@
 
 module.exports = {
+	_loadedRewardedVideoAd: false,
 	_isShowingRewardedVideoAd: false,	
-	tag: '',
 	setLicenseKey: function (email, licenseKey) {
 		var self = this;	
         cordova.exec(
@@ -17,13 +17,16 @@ module.exports = {
         cordova.exec(
 			function (result) {
 				console.log('setUp succeeded.');				
-/*				
+				
 				if (typeof result == "string") {
-					if (result == "onAvailable") {
-						if (self.onAvailable)
-							self.onAvailable();
+					if (result == "onRewardedVideoAdLoaded") {
+						self._loadedRewardedVideoAd = true;
+
+						if (self.onRewardedVideoAdLoaded)
+							self.onRewardedVideoAdLoaded();
 					}
 					else if (result == "onRewardedVideoAdShown") {
+						self._loadedRewardedVideoAd = false;
 						self._isShowingRewardedVideoAd = true;
 					
 						if (self.onRewardedVideoAdShown)
@@ -35,19 +38,20 @@ module.exports = {
 						if (self.onRewardedVideoAdHidden)
 							self.onRewardedVideoAdHidden();
 					}
-					//
 					else if (result == "onRewardedVideoAdCompleted") {
 						self._isShowingRewardedVideoAd = false;
 					
 						if (self.onRewardedVideoAdCompleted)
 							self.onRewardedVideoAdCompleted();
 					}
+/*					
 					else if (result == "onRewardedVideoAdNotCompleted") {
 						self._isShowingRewardedVideoAd = false;					
 						
 						if (self.onRewardedVideoAdNotCompleted)
 							self.onRewardedVideoAdNotCompleted();
 					}
+*/					
 				}
 				else {
 					//if (result["event"] == "onXXX") {
@@ -56,134 +60,41 @@ module.exports = {
 					//		self.onXXX(result);
 					//}
 				}
-*/				
 			},
 			function (error) {
 				console.log('setUp failed.');
-/*			
-				if (typeof error == "string") {
-					if (error == "onUnavailable") {
-						if (self.onUnavailable)
-							self.onUnavailable();
-					}
-				}
-				else {
-					//if (error["event"] == "onXXX") {
-					//	//error["message"]
-					//	if (self.onXXX)
-					//		self.onXXX(error);
-					//}
-				}
-*/				
 			},
             'Vungle',
             'setUp',			
 			[appId]
         ); 
     },
-    checkAvailable: function (tag) {
+    showRewardedVideoAd: function () {
 		var self = this;
 		cordova.exec(
-			function (result) {
-				console.log('checkAvailable succeeded.');
-				
-				self.tag = tag;				
-				if (typeof result == "string") {
-					if (result == "onAvailable") {
-						if (self.onAvailable)
-							self.onAvailable();
-					}
-				}
-				else {
-					//if (result["event"] == "onXXX") {
-					//	//result["message"]
-					//	if (self.onXXX)
-					//		self.onXXX(result);
-					//}
-				}
-			},
-			function (error) {
-				console.log('checkAvailable failed.');
-				
-				self.tag = tag;				
-				if (typeof error == "string") {
-					if (error == "onUnavailable") {
-						if (self.onUnavailable)
-							self.onUnavailable();
-					}
-				}
-				else {
-					//if (error["event"] == "onXXX") {
-					//	//error["message"]
-					//	if (self.onXXX)
-					//		self.onXXX(error);
-					//}
-				}				
-			},			
-            'Vungle',
-            'checkAvailable',
-            []
-        ); 
-    },	
-    showRewardedVideoAd: function (tag) {
-		var self = this;
-		cordova.exec(
-			function (result) {
-				console.log('showRewardedVideoAd succeeded.');
-				
-				self.tag = tag;				
-				if (typeof result == "string") {
-					if (result == "onRewardedVideoAdShown") {
-						self._isShowingRewardedVideoAd = true;
-					
-						if (self.onRewardedVideoAdShown)
-							self.onRewardedVideoAdShown();
-					}
-					else if (result == "onRewardedVideoAdHidden") {
-						self._isShowingRewardedVideoAd = false;
-					
-						if (self.onRewardedVideoAdHidden)
-							self.onRewardedVideoAdHidden();
-					}
-					//
-					else if (result == "onRewardedVideoAdCompleted") {
-						self._isShowingRewardedVideoAd = false;
-					
-						if (self.onRewardedVideoAdCompleted)
-							self.onRewardedVideoAdCompleted();
-					}
-					else if (result == "onRewardedVideoAdNotCompleted") {
-						self._isShowingRewardedVideoAd = false;
-					
-						if (self.onRewardedVideoAdNotCompleted)
-							self.onRewardedVideoAdNotCompleted();
-					}
-				}
-				else {
-					//if (result["event"] == "onXXX") {
-					//	//result["message"]
-					//	if (self.onXXX)
-					//		self.onXXX(result);
-					//}
-				}
-			},
-			function (error) {
-				console.log('showRewardedVideoAd failed.');
-			},
+ 			null,
+            null,
             'Vungle',
             'showRewardedVideoAd',
             []
         ); 
     },
+	loadedRewardedVideoAd: function() {
+		return this._loadedRewardedVideoAd;
+	},	
 	isShowingRewardedVideoAd: function() {
 		return this._isShowingRewardedVideoAd;
-	},	
+	},
+/*	
 	//
-	onAvailable: null,
-	onUnavailable: null,
+	onAvailable: null,//deprecated
+	onUnavailable: null,//deprecated
+*/	
 	//
 	onRewardedVideoAdShown: null,
 	onRewardedVideoAdHidden: null,
-	onRewardedVideoAdCompleted: null,
+	onRewardedVideoAdCompleted: null
+/*	
 	onRewardedVideoAdNotCompleted: null
+*/	
 };
