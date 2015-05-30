@@ -91,6 +91,7 @@ module.exports = {
 	onUnavailable: null,//deprecated
 */	
 	//
+	onRewardedVideoAdLoaded: null,
 	onRewardedVideoAdShown: null,
 	onRewardedVideoAdHidden: null,
 	onRewardedVideoAdCompleted: null

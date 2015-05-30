@@ -241,7 +241,7 @@ public class Vungle extends CordovaPlugin {
 		}
 
 		vunglePub.init(cordova.getActivity(), appId);
-		vunglePub.setEventListener(new MyEventListener());
+		vunglePub.setEventListeners(new MyEventListener());//listener needs to come after init on android vunlge sdk
 		
 		final AdConfig config = vunglePub.getGlobalAdConfig();
 		config.setOrientation(Orientation.autoRotate);//for android
@@ -257,17 +257,19 @@ public class Vungle extends CordovaPlugin {
 	}
 
 	class MyEventListener implements EventListener {	
-
+	
 		@Override
-		public void onCachedAdAvailable() {
-			Log.d(LOG_TAG, "onCachedAdAvailable");
+		public void onAdPlayableChanged(boolean isAdPlayable) {
+			Log.d(LOG_TAG, "onAdPlayableChanged");
 			
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdLoaded");
-			pr.setKeepCallback(true);
-			callbackContextKeepCallback.sendPluginResult(pr);
-			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
-			//pr.setKeepCallback(true);
-			//callbackContextKeepCallback.sendPluginResult(pr);			
+			if (isAdPlayable) {
+				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onRewardedVideoAdLoaded");
+				pr.setKeepCallback(true);
+				callbackContextKeepCallback.sendPluginResult(pr);
+				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+				//pr.setKeepCallback(true);
+				//callbackContextKeepCallback.sendPluginResult(pr);	
+			}
 		}
 		
 		@Override

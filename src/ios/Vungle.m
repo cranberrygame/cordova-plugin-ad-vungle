@@ -109,9 +109,8 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 	}
 	
     VungleSDK* sdk = [VungleSDK sharedSDK];
-    // start vungle publisher library
+    [sdk setDelegate:self];//listener need to come before startWithAppId on ios vunlge sdk
     [sdk startWithAppId:appId];
-    [sdk setDelegate:self];
 }
 
 -(void) _showRewardedVideoAd {
@@ -167,13 +166,6 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 - (void)vungleSDKwillCloseProductSheet:(id)productSheet
 {
     NSLog(@"%@", @"vungleSDKwillCloseProductSheet");
- 
-    CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdHidden"];
-    [pr setKeepCallbackAsBool:YES];
-	[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
-    //CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-	//[pr setKeepCallbackAsBool:YES];
-	//[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
 }
 
 /**
@@ -213,6 +205,13 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 		//[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
 */		
 	}
+    
+    CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"onRewardedVideoAdHidden"];
+    [pr setKeepCallbackAsBool:YES];
+    [self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
+    //CDVPluginResult* pr = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
+    //[pr setKeepCallbackAsBool:YES];
+    //[self.commandDelegate sendPluginResult:pr callbackId:self.callbackIdKeepCallback];
 }
 
  - (void)dealloc {
