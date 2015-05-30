@@ -7,8 +7,8 @@ Show vungle rewarded video ad
 
 Requires vungle account http://www.vungle.com/
 
-Android vungle SDK 3.2.2
-iOS vungle SDK 3.0.11
+Android vungle SDK 3.3.0
+iOS vungle SDK 3.0.13
 
 This is open source cordova plugin.
 
