@@ -34,7 +34,7 @@ Plugin ID: com.cranberrygame.cordova.plugin.ad.vungle
 ```
 
 ## Cocoon ##
-https://cocoon.io - Create project - [specific project] - Setting - Plugins - Search - cranberrygame - vungle
+https://cocoon.io - Create project - [specific project] - Setting - Plugins - Search - cranberrygame - vungle - Save
 
 ## Phonegap build service (config.xml) ##
 https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file including config.xml
