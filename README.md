@@ -8,7 +8,7 @@ Show vungle rewarded video ad
 Requires vungle account http://www.vungle.com/
 
 Android vungle SDK 3.3.0
-iOS vungle SDK 3.0.13
+iOS vungle SDK 3.0.11
 
 This is open source cordova plugin.
 
@@ -34,7 +34,7 @@ Plugin ID: com.cranberrygame.cordova.plugin.ad.vungle
 ```
 
 ## Cocoon ##
-https://cocoon.io - Create project - [specific project] - Setting - Plugins - Search - cranberrygame - vungle - Save
+https://cocoon.io - Create project - [specific project] - Setting - Plugins - Custom - Git Url: https://github.com/cranberrygame/cordova-plugin-ad-vungle.git - INSTALL - Save<br>
 
 ## Phonegap build service (config.xml) ##
 https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file including config.xml
