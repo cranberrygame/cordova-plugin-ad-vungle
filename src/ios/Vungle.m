@@ -16,6 +16,11 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 //
 @synthesize appId;
 
+- (void) pluginInitialize {
+    [super pluginInitialize];    
+    //
+}
+
 - (void) setLicenseKey: (CDVInvokedUrlCommand*)command {
     NSString *email = [command.arguments objectAtIndex: 0];
     NSString *licenseKey = [command.arguments objectAtIndex: 1];
@@ -61,10 +66,12 @@ static NSString *TEST_APP_ID = @"5556444b4b79673719000185";
 	self.licenseKey_ = licenseKey;
 	
 	//
-	NSString *str1 = [self md5:[NSString stringWithFormat:@"com.cranberrygame.cordova.plugin.: %@", email]];
-	NSString *str2 = [self md5:[NSString stringWithFormat:@"com.cranberrygame.cordova.plugin.ad.vungle: %@", email]];
-	NSString *str3 = [self md5:[NSString stringWithFormat:@"com.cranberrygame.cordova.plugin.ad.video.vungle: %@", email]];
-	if(licenseKey_ != Nil && ([licenseKey_ isEqualToString:str1] || [licenseKey_ isEqualToString:str2] || [licenseKey_ isEqualToString:str3])){
+	NSString *str1 = [self md5:[NSString stringWithFormat:@"cordova-plugin-: %@", email]];
+	NSString *str2 = [self md5:[NSString stringWithFormat:@"cordova-plugin-ad-vungle: %@", email]];
+	NSString *str3 = [self md5:[NSString stringWithFormat:@"com.cranberrygame.cordova.plugin.: %@", email]];
+	NSString *str4 = [self md5:[NSString stringWithFormat:@"com.cranberrygame.cordova.plugin.ad.vungle: %@", email]];
+	NSString *str5 = [self md5:[NSString stringWithFormat:@"com.cranberrygame.cordova.plugin.ad.video.vungle: %@", email]];
+	if(licenseKey_ != Nil && ([licenseKey_ isEqualToString:str1] || [licenseKey_ isEqualToString:str2] || [licenseKey_ isEqualToString:str3] || [licenseKey_ isEqualToString:str4] || [licenseKey_ isEqualToString:str5])){
 		self.validLicenseKey = YES;
 		NSArray *excludedLicenseKeys = [NSArray arrayWithObjects: @"xxx", nil];
 		for (int i = 0 ; i < [excludedLicenseKeys count] ; i++) {

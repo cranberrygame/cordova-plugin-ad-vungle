@@ -1,0 +1,39 @@
+{
+  "name": "cordova-plugin-ad-vungle",
+  "version": "1.0.59",
+  "description": "Show vungle rewarded video ad",
+  "cordova": {
+    "id": "cordova-plugin-ad-vungle",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cranberrygame/cordova-plugin-ad-vungle.git"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "ad",
+    "video",
+    "vungle",
+    "monetisation",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "cranberrygame",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cranberrygame/cordova-plugin-ad-vungle/issues"
+  },
+  "homepage": "https://github.com/cranberrygame/cordova-plugin-ad-vungle#readme"
+}

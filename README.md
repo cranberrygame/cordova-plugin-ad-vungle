@@ -3,11 +3,11 @@ Cordova Vungle plugin
 # Overview #
 Show vungle rewarded video ad
 
-[android, ios] [crodova cli] [xdk]
+[android, ios] [crodova cli] [xdk] [cocoon] [phonegap build service]
 
 Requires vungle account http://www.vungle.com/
 
-Android vungle SDK 3.3.0
+Android vungle SDK 3.3.0<br>
 iOS vungle SDK 3.0.11
 
 This is open source cordova plugin.
@@ -23,14 +23,16 @@ You can see Plugins For Cordova in one page: http://cranberrygame.github.io?refe
 https://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface - npm install -g cordova@5.0.0
 ```c
 cordova plugin add cordova-plugin-ad-vungle
+(when build error, use github url: cordova plugin add cordova plugin add https://github.com/cranberrygame/cordova-plugin-ad-vungle)
 ```
 
 ## Xdk ##
-https://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA 3.X HYBRID MOBILE APP SETTINGS - PLUGINS - Third Party Plugins - Add a Third Party Plugin - Get Plugin from the Web -
+https://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA HYBRID MOBILE APP SETTINGS - Plugins - Third Party Plugins - Add a Third Party Plugin - Get Plugin from the Web -
 ```c
 Name: vungle
-Plugin ID: com.cranberrygame.cordova.plugin.ad.vungle
-[v] Plugin is located in the Apache Cordova Plugins Registry
+Plugin ID: cordova-plugin-ad-vungle
+[Do not check] Plugin is located in the Apache Cordova Plugins Registry
+Repo URL: https://github.com/cranberrygame/cordova-plugin-ad-vungle
 ```
 
 ## Cocoon ##
@@ -43,9 +45,11 @@ https://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file
 ```
 
 ## Construct2 ##
-Download construct2 plugin: http://www.paywithapost.de/pay?id=4ef3f2be-26e8-4a04-b826-6680db13a8c8
-<br>
-Now all the native plugins are installed automatically: https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
+Download construct2 plugin<br>
+https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/index.html<br>
+How to install c2 native plugins in xdk, cocoon and cordova cli<br>
+https://plus.google.com/102658703990850475314/posts/XS5jjEApJYV
+
 # Server setting #
 
 <img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-vungle/master/doc/app_id.png"><br>
@@ -97,8 +101,8 @@ else if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad
 
 document.addEventListener("deviceready", function(){
 	//if no license key, 2% ad traffic share for dev support.
-	//you can get free license key from https://play.google.com/store/apps/details?id=com.cranberrygame.pluginsforcordova
-	//window.vungle.setLicenseKey("yourEmailId@yourEmaildDamin.com", "yourFreeLicenseKey");
+	//you can get paid license key: https://cranberrygame.github.io/request_cordova_ad_plugin_paid_license_key
+	//window.vungle.setLicenseKey("yourEmailId@yourEmaildDamin.com", "yourLicenseKey");
 
 	window.vungle.setUp(appId);
 
