@@ -1,7 +1,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-ad-vungle"
-        version="1.0.59">
+        version="1.0.60">
 		
     <name>Cordova Vungle plugin</name>
     <description>Show vungle rewarded video ad</description>
@@ -64,9 +64,12 @@
 		
 <!--
 		<dependency id="com.google.playservices" url="https://github.com/MobileChromeApps/google-play-services" commit="00f511a8ce332d4586f067240460bfe978ace2ae" />
--->		
 		<dependency id="com.google.playservices@21.0.0" />
+
 		<dependency id="android.support.v4@1.0.0" />
+-->		
+		<dependency id="cordova-plugin-extras-google-play-services" />		
+		<dependency id="cordova-plugin-extras-android-support-library-v4" />		
     </platform> 
 	
 	<!-- ios -->

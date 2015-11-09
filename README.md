@@ -27,12 +27,10 @@ cordova plugin add cordova-plugin-ad-vungle
 ```
 
 ## Xdk ##
-https://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA HYBRID MOBILE APP SETTINGS - Plugins - Third Party Plugins - Add a Third Party Plugin - Get Plugin from the Web -
+https://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA HYBRID MOBILE APP SETTINGS - Plugin Management - Add Plugins to this Project - Third Party Plugins -
 ```c
-Name: vungle
+Plugin Source: Cordova plugin registry
 Plugin ID: cordova-plugin-ad-vungle
-[Do not check] Plugin is located in the Apache Cordova Plugins Registry
-Repo URL: https://github.com/cranberrygame/cordova-plugin-ad-vungle
 ```
 
 ## Cocoon ##
@@ -138,7 +136,7 @@ https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/vungle/apk.html
 
 # Useful links #
 
-Plugins For Cordova<br>
+Cordova Plugins<br>
 http://cranberrygame.github.io?referrer=github
 
 # Credits #
