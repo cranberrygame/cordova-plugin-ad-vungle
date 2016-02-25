@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-ad-vungle",
-  "version": "1.0.60",
+  "version": "1.0.61",
   "description": "Show vungle rewarded video ad",
   "cordova": {
     "id": "cordova-plugin-ad-vungle",

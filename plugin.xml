@@ -1,7 +1,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-ad-vungle"
-        version="1.0.60">
+        version="1.0.61">
 		
     <name>Cordova Vungle plugin</name>
     <description>Show vungle rewarded video ad</description>
@@ -14,7 +14,7 @@
 	    <engine name="cordova" version=">=3.0.0" />
 	</engines>
 	 
-    <js-module src="www/vungle.js">
+    <js-module src="www/vungle.js" name="vungle">
         <clobbers target="window.vungle" />
     </js-module>	
  
