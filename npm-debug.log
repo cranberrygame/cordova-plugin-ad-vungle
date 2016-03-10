@@ -1,0 +1,113 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish', '.' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/mac/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package.tgz
+12 verbose folder .
+13 info prepublish cordova-plugin-ad-vungle@1.0.61
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/mac/.npm/1f1177db-tar.lock
+16 silly lockFile 11cb7617-gin-ad-vungle-1-0-61-package-tgz tar:///Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package.tgz
+17 verbose lock tar:///Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package.tgz /Users/mac/.npm/11cb7617-gin-ad-vungle-1-0-61-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 11cb7617-gin-ad-vungle-1-0-61-package-tgz tar:///Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package.tgz
+21 silly lockFile 11cb7617-gin-ad-vungle-1-0-61-package-tgz tar:///Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package.tgz
+22 silly lockFile 4fda6ee4--plugin-ad-vungle-1-0-61-package /Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package
+23 verbose lock /Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package /Users/mac/.npm/4fda6ee4--plugin-ad-vungle-1-0-61-package.lock
+24 silly lockFile 4fda6ee4--plugin-ad-vungle-1-0-61-package /Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package
+25 silly lockFile 4fda6ee4--plugin-ad-vungle-1-0-61-package /Users/mac/.npm/cordova-plugin-ad-vungle/1.0.61/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { name: 'cordova-plugin-ad-vungle',
+28 silly publish   version: '1.0.61',
+28 silly publish   description: 'Show vungle rewarded video ad',
+28 silly publish   cordova:
+28 silly publish    { id: 'cordova-plugin-ad-vungle',
+28 silly publish      platforms: [ 'android', 'ios' ] },
+28 silly publish   repository:
+28 silly publish    { type: 'git',
+28 silly publish      url: 'git+https://github.com/cranberrygame/cordova-plugin-ad-vungle.git' },
+28 silly publish   keywords:
+28 silly publish    [ 'cordova',
+28 silly publish      'plugin',
+28 silly publish      'ad',
+28 silly publish      'video',
+28 silly publish      'vungle',
+28 silly publish      'monetisation',
+28 silly publish      'ecosystem:cordova',
+28 silly publish      'cordova-android',
+28 silly publish      'cordova-ios' ],
+28 silly publish   engines: [ { name: 'cordova', version: '>=3.0.0' } ],
+28 silly publish   author: { name: 'cranberrygame' },
+28 silly publish   license: 'MIT',
+28 silly publish   bugs: { url: 'https://github.com/cranberrygame/cordova-plugin-ad-vungle/issues' },
+28 silly publish   homepage: 'https://github.com/cranberrygame/cordova-plugin-ad-vungle#readme',
+28 silly publish   readme: 'Cordova Vungle plugin\r\n====================\r\n# Overview #\r\nShow vungle rewarded video ad\r\n\r\n[android, ios] [crodova cli] [xdk] [cocoon] [phonegap build service]\r\n\r\nRequires vungle account http://www.vungle.com/\r\n\r\nAndroid vungle SDK 3.3.0<br>\r\niOS vungle SDK 3.0.11\r\n\r\nThis is open source cordova plugin.\r\n\r\nYou can see Cordova Plugins in one page: http://cranberrygame.github.io?referrer=github\r\n\r\n# Change log #\r\n```c\r\n```\r\n# Install plugin #\r\n\r\n## Cordova cli ##\r\nhttps://cordova.apache.org/docs/en/edge/guide_cli_index.md.html#The%20Command-Line%20Interface - npm install -g cordova@6.0.0\r\n```c\r\ncordova plugin add cordova-plugin-ad-vungle\r\n(when build error, use github url: cordova plugin add cordova plugin add https://github.com/cranberrygame/cordova-plugin-ad-vungle)\r\n```\r\n\r\n## Xdk ##\r\nhttps://software.intel.com/en-us/intel-xdk - Download XDK - XDK PORJECTS - [specific project] - CORDOVA HYBRID MOBILE APP SETTINGS - Plugin Management - Add Plugins to this Project - Third Party Plugins -\r\n```c\r\nPlugin Source: Cordova plugin registry\r\nPlugin ID: cordova-plugin-ad-vungle\r\n```\r\n\r\n## Cocoon ##\r\nhttps://cocoon.io - Create project - [specific project] - Setting - Plugins - Custom - Git Url: https://github.com/cranberrygame/cordova-plugin-ad-vungle.git - INSTALL - Save<br>\r\n\r\n## Phonegap build service (config.xml) ##\r\nhttps://build.phonegap.com/ - Apps - [specific project] - Update code - Zip file including config.xml\r\n```c\r\n<gap:plugin name="cordova-plugin-ad-vungle" source="npm" />\r\n```\r\n\r\n## Construct2 ##\r\nDownload construct2 plugin<br>\r\nhttps://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/index.html<br>\r\nHow to install c2 native plugins in xdk, cocoon and cordova cli<br>\r\nhttps://plus.google.com/102658703990850475314/posts/XS5jjEApJYV\r\n\r\n# Server setting #\r\n\r\n<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-vungle/master/doc/app_id.png"><br>\r\n<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-vungle/master/doc/test_mode.png"><br>\r\n<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-vungle/master/doc/ios1.png"><br>\r\n<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-vungle/master/doc/ios2.png"><br>\r\n<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-vungle/master/doc/ios3.png"><br>\r\n<img src="https://raw.githubusercontent.com/cranberrygame/cordova-plugin-ad-vungle/master/doc/ios4.png">\r\n\r\n```c\r\ntest mode setting: \r\nhttps://www.vungle.com - Login - Applications - [specific app] - Status - Select Test Node, Active or Inactive\r\n\r\n[android]\r\n\r\n[ios]\r\n\r\n//check Push Notifications\r\nhttps://developer.apple.com/devcenter/ios/index.action - Certificates, Identifiers & Profiles - Identifiers - App IDs - pickupsticks - Edit - check Push Notifications\r\n\r\ncf)\r\n\r\nWe have discovered one or more issues with your recent delivery for "xxx". \r\nYour delivery was successful, but you may wish to correct the following issues in your next delivery:\r\n\r\nMissing Push Notification Entitlement - Your app appears to include API used to register with the Apple Push Notification service, \r\nbut the app signature\'s entitlements do not include the "aps-environment" entitlement. \r\nIf your app uses the Apple Push Notification service, make sure your App ID is enabled for Push Notification in the Provisioning Portal, \r\nand resubmit after signing your app with a Distribution provisioning profile that includes the "aps-environment" entitlement. \r\nSee "Provisioning and Development" in the Local and Push Notification Programming Guide for more information. \r\nIf your app does not use the Apple Push Notification service, no action is required. \r\nYou may remove the API from future submissions to stop this warning. \r\nIf you use a third-party framework, you may need to contact the developer for information on removing the API.\r\n```\r\n# API #\r\n```javascript\r\nvar appId = "REPLACE_THIS_WITH_YOUR_APP_ID";\r\n/*\r\nvar appId;\r\n//android\r\nif (navigator.userAgent.match(/Android/i)) {\r\n\tappId = "REPLACE_THIS_WITH_YOUR_APP_ID";\r\n}\r\n//ios\r\nelse if (navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)) {\r\n\tappId = "REPLACE_THIS_WITH_YOUR_APP_ID";\r\n}\r\n*/\r\n\r\ndocument.addEventListener("deviceready", function(){\r\n\t//if no license key, 2% ad traffic share for dev support.\r\n\t//you can get paid license key: https://cranberrygame.github.io/request_cordova_ad_plugin_paid_license_key\r\n\t//window.vungle.setLicenseKey("yourEmailId@yourEmaildDamin.com", "yourLicenseKey");\r\n\r\n\twindow.vungle.setUp(appId);\r\n\r\n\twindow.vungle.onRewardedVideoAdLoaded = function() {\r\n\t\talert(\'onRewardedVideoAdLoaded\');\r\n\t};\r\n\twindow.vungle.onRewardedVideoAdShown = function() {\r\n\t\talert(\'onRewardedVideoAdShown\');\r\n\t};\r\n\twindow.vungle.onRewardedVideoAdHidden = function() {\r\n\t\talert(\'onRewardedVideoAdHidden\');\r\n\t};\r\n\twindow.vungle.onRewardedVideoAdCompleted = function() {\r\n\t\talert(\'onRewardedVideoAdCompleted\');\r\n\t};\t\r\n}, false);\r\n\r\nwindow.vungle.showRewardedVideoAd();\r\n\r\nalert(window.vungle.loadedRewardedVideoAd());//boolean: true or false\r\n\r\nalert(window.vungle.isShowingRewardedVideoAd());//boolean: true or false\r\n```\r\n# Examples #\r\n<a href="https://github.com/cranberrygame/cordova-plugin-ad-vungle/blob/master/example/basic/index.html">example/basic/index.html</a><br>\r\n\r\n# Test #\r\n\r\n[![](http://img.youtube.com/vi/etstZY7k6z8/0.jpg)](https://www.youtube.com/watch?v=etstZY7k6z8&feature=youtu.be "Youtube")\r\n\r\nYou can also run following test apk.\r\nhttps://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/vungle/apk.html\r\n\r\n# Useful links #\r\n\r\nCordova Plugins<br>\r\nhttp://cranberrygame.github.io?referrer=github\r\n\r\n# Credits #\r\n\r\n',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   gitHead: '9a6b10eca8f4c4bf47a3b513c868411c71c42a68',
+28 silly publish   _id: 'cordova-plugin-ad-vungle@1.0.61',
+28 silly publish   scripts: {},
+28 silly publish   _shasum: '69278c159a25a60c41e1fa08f8a7c5cf06915b81',
+28 silly publish   _from: '.' }
+29 verbose request where is /cordova-plugin-ad-vungle
+30 verbose request registry https://registry.npmjs.org/
+31 verbose request id 8655d50e8c0fd676
+32 verbose url raw /cordova-plugin-ad-vungle
+33 verbose url resolving [ 'https://registry.npmjs.org/', './cordova-plugin-ad-vungle' ]
+34 verbose url resolved https://registry.npmjs.org/cordova-plugin-ad-vungle
+35 verbose request where is https://registry.npmjs.org/cordova-plugin-ad-vungle
+36 info trying registry request attempt 1 at 11:42:40
+37 http PUT https://registry.npmjs.org/cordova-plugin-ad-vungle
+38 http 403 https://registry.npmjs.org/cordova-plugin-ad-vungle
+39 verbose headers { 'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=300',
+39 verbose headers   'content-length': '96',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   date: 'Thu, 10 Mar 2016 02:42:44 GMT',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   connection: 'keep-alive',
+39 verbose headers   'x-served-by': 'cache-nrt6131-NRT',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1457577761.125023,VS0,VE3108' }
+40 error publish Failed PUT 403
+41 error Error: "You cannot publish over the previously published version 1.0.61." : cordova-plugin-ad-vungle
+41 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+41 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+41 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:236:22)
+41 error     at Request.emit (events.js:98:17)
+41 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+41 error     at Request.emit (events.js:117:20)
+41 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+41 error     at IncomingMessage.emit (events.js:117:20)
+41 error     at _stream_readable.js:943:16
+41 error     at process._tickCallback (node.js:419:13)
+42 error If you need help, you may report this *entire* log,
+42 error including the npm and node versions, at:
+42 error     <http://github.com/npm/npm/issues>
+43 error System Darwin 14.5.0
+44 error command "node" "/usr/local/bin/npm" "publish" "."
+45 error cwd /Users/mac/Documents/github/cordova-plugin-ad-vungle
+46 error node -v v0.10.32
+47 error npm -v 1.4.28
+48 verbose exit [ 1, true ]
