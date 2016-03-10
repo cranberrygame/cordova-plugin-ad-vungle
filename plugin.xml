@@ -68,8 +68,10 @@
 
 		<dependency id="android.support.v4@1.0.0" />
 -->		
-		<dependency id="cordova-plugin-extras-google-play-services" />		
+		<dependency id="cordova-plugin-extras-google-play-services" />
+<!--		
 		<dependency id="cordova-plugin-extras-android-support-library-v4" />		
+-->		
     </platform> 
 	
 	<!-- ios -->
